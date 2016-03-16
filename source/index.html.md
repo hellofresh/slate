@@ -353,8 +353,8 @@ curl "https://api-v2.hellofresh.com/recipes/ID"
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
+Parameter | Type | Description
+--------- | ---- | -----------
 country   | string   | Country is mandatory for all requests (AT, AU, BE, DE, GB, NL, US)
 ID | string | The ID of the recipe
 
