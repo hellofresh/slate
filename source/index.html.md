@@ -44,7 +44,7 @@ We use oAuth2 in order to grant access to our API. For every request you need a 
 
 ### HTTP Request
 
-`POST http://api-v2.hellofresh.com/auth/oauth2/client/access_token`
+`POST https://api-v2.hellofresh.com/auth/oauth2/client/access_token`
 
 ### Headers
 
@@ -159,7 +159,7 @@ curl "https://api-v2.hellofresh.com/recipes/search?country=DE&q=pizza&limit=1"
 
 ### HTTP Request
 
-`GET http://api-v2.hellofresh.com/recipes/search`
+`GET https://api-v2.hellofresh.com/recipes/search`
 
 ### Headers
 
@@ -338,7 +338,7 @@ curl "https://api-v2.hellofresh.com/recipes/ID"
   "updatedAt": "2016-03-16T12:09:57+0100",
   "country": "DE",
   "slug": "grune-pizza-mit-zitronen-ricotta",
-  "websiteUrl": "http://www.hellofresh.de/recipe/detail/56b1bc45f8b25ebc158b4568"
+  "websiteUrl": "https://www.hellofresh.de/recipe/detail/56b1bc45f8b25ebc158b4568"
 }
 ```
 
