@@ -157,8 +157,6 @@ curl "https://api-v2.hellofresh.com/recipes/search?country=DE&q=pizza&limit=1"
 }
 ```
 
-This endpoint retrieves all kittens.
-
 ### HTTP Request
 
 `GET http://api-v2.hellofresh.com/recipes/search`
@@ -193,27 +191,222 @@ order   | string   | Sort order: date; -date; rating; -rating; time; -time; name
 Remember to put the country in your request!
 </aside>
 
-## Get a Specific Kitten
+## Get a Specific Recipe
 
 
 ```shell
-curl "https://api-v2.hellofresh.com/recipes/search?country=DE&q=pizza&limit=1"
+curl "https://api-v2.hellofresh.com/recipes/ID"
   -H "Authorization: Bearer MY_TOKEN"
   -H "Content-Type: application/json"
 ```
 
 > The above command returns JSON structured like this:
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+```json
+{
+  "imageLink": "https://d3hvwccx09j84u.cloudfront.net/web/image/56b1bc45f8b25ebc158b4568.jpg?t=20160316120957",
+  "thumbLink": "https://d3hvwccx09j84u.cloudfront.net/web/thumb/56b1bc45f8b25ebc158b4568.jpg?t=20160316120957",
+  "videoLink": null,
+  "cardLink": "https://ddw4dkk7s1lkt.cloudfront.net/card/56b1bc45f8b25ebc158b4568.pdf?t=20160316120957",
+  "favoritesCount": 937,
+  "ratingsCount": 1921,
+  "averageRating": 2.8,
+  "userFavorite": null,
+  "userRating": null,
+  "name": "Grüne Pizza mit Zitronen-Ricotta",
+  "description": "Pizza mal anders: Anstatt Mozzarella gibt es fruchtigen Ricotta, die Tomaten liegen nicht unten, sondern oben, und Pesto und karamellisierte Walnüsse sorgen für ein ganz besonderes Geschmackerlebnis. Obendrein ist diese Pizza auch noch ein echter Augenschmaus! Guten Appetit!",
+  "headline": "und Kirschtomaten",
+  "prepTime": "PT40M",
+  "difficulty": 2,
+  "weeks": null,
+  "productFamilies": null,
+  "allergens": [
+    {
+      "code": 7,
+      "description": null,
+      "id": "55422d79f8b25eb6758b456d",
+      "link": null,
+      "type": "milk",
+      "country": "DE",
+      "name": "Lactose",
+      "slug": "lactose"
+    }
+  ],
+  "yieldType": "servings",
+  "yields": [
+    {
+      "ingredients": [
+        {
+          "id": "555da63dfd2cb95a758b4569",
+          "amount": 1,
+          "unit": "Stück"
+        }
+      ],
+      "yields": 2
+    }
+  ],
+  "ingredients": [
+    {
+      "internalName": "Basilikum",
+      "imageLink": "https://d3hvwccx09j84u.cloudfront.net/200,200/image/554b32d1f8b25ef93e8b456e.png",
+      "shipped": "1",
+      "clonedFrom": "",
+      "allergens": [],
+      "family": null,
+      "description": null,
+      "id": "554b32d1f8b25ef93e8b456e",
+      "link": null,
+      "type": "basilikum",
+      "country": "DE",
+      "name": "Basilikum",
+      "slug": "basilikum"
+    }
+  ],
+  "steps": [
+    {
+      "index": 1,
+      "instructions": "Brokkoli in feine Röschen teilen, waschen und dann grob hacken. Knoblauch abziehen. Basilikum waschen, trocken schütteln und die Blätter abzupfen. Parmesan grob reiben. Kirschtomaten waschen und in Scheiben schneiden. Limette entsaften.",
+      "ingredients": [
+        "554b32d1f8b25ef93e8b456e"
+      ],
+      "utensils": [
+        "55422d79f8b25eb6758b4759"
+      ],
+      "images": [
+        {
+          "type": "image",
+          "link": "https://d3hvwccx09j84u.cloudfront.net/0,1000/56b1bc45f8b25ebc158b4568/step_56b2418fa0b30.jpg",
+          "caption": "Brokkoli klein schneiden"
+        }
+      ],
+      "videos": [],
+      "timers": []
+    }
+  ],
+  "nutrition": [
+    {
+      "type": "55422d79f8b25eb6758b46c3",
+      "country": "DE",
+      "name": "Ballaststoffe",
+      "amount": 4,
+      "unit": "g"
+    }
+  ],
+  "cuisines": [
+    {
+      "id": "55422d79f8b25eb6758b45ed",
+      "link": null,
+      "type": "fusion",
+      "country": "DE",
+      "name": "fusion",
+      "slug": "fusion",
+      "iconLink": ""
+    }
+  ],
+  "categories": [],
+  "highlighted": false,
+  "active": true,
+  "utensils": [
+    {
+      "id": "55422d79f8b25eb6758b475d",
+      "link": null,
+      "type": "stove",
+      "country": "DE",
+      "name": "Ofen",
+      "iconLink": null
+    }
+  ],
+  "tags": [
+    {
+      "name": "Vegetarisch",
+      "type": "vegetarian",
+      "numberOfRecipes": 193,
+      "imageByAuthor": {
+        "JO": "https://s3-eu-west-1.amazonaws.com/hf-recipes/tags/HF_IOS_icon_VEGGIE_105%401x_JO.png"
+      },
+      "id": "55422d79f8b25eb6758b474a",
+      "link": null,
+      "country": "DE",
+      "iconLink": "https://s3-eu-west-1.amazonaws.com/hf-recipes/tags/icon-veggie%403x.png"
+    }
+  ],
+  "presets": [],
+  "author": null,
+  "id": "56b1bc45f8b25ebc158b4568",
+  "link": "https://api.dev.hellofresh.com//recipes/56b1bc45f8b25ebc158b4568?country=de",
+  "createdAt": "2016-02-03T09:37:25+0100",
+  "updatedAt": "2016-03-16T12:09:57+0100",
+  "country": "DE",
+  "slug": "grune-pizza-mit-zitronen-ricotta",
+  "websiteUrl": "http://www.hellofresh.de/recipe/detail/56b1bc45f8b25ebc158b4568"
+}
+```
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://api-v2.hellofresh.com.com/recipes/<ID>`
+
+### Headers
+
+`Content-Type: application/json`
+`Authorization: Bearer YOUR_TOKEN`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+country   | string   | Country is mandatory for all requests (AT, AU, BE, DE, GB, NL, US)
+ID | The ID of the recipe
+
+# Ingredients
+
+## Get ingredients
+
+```shell
+curl "https://api-v2.hellofresh.com/ingredients?country=DE&limit=1"
+  -H "Authorization: Bearer MY_TOKEN"
+  -H "Content-Type: application/json"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "items": [
+    {
+      "internalName": "Karotte, lila",
+      "imageLink": "https://d3hvwccx09j84u.cloudfront.net/200,200/image/5568261dfd2cb96e228b4568.png",
+      "shipped": "1",
+      "clonedFrom": "",
+      "allergens": [],
+      "family": null,
+      "description": null,
+      "id": "5568261dfd2cb96e228b4568",
+      "link": null,
+      "type": "karotte, lila",
+      "country": "DE",
+      "name": "Karotte, lila",
+      "slug": "karotte-lila"
+    }
+  ],
+  "count": 1
+}
+```
+
+### HTTP Request
+
+`GET https://api-v2.hellofresh.com.com/ingredients/`
+
+### Headers
+
+`Content-Type: application/json`
+`Authorization: Bearer YOUR_TOKEN`
+
+### URL Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+country   | string   | Country is mandatory for all requests (AT, AU, BE, DE, GB, NL, US)
+skip | integer | Number of results to skip
+take | integer | Number of results to show
+sort | string | Sort by field(s) in the response collection. You can do ASC and DESC by using + and -. Default is +. Ex: ?sort=price,-createdAt
