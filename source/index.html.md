@@ -32,6 +32,14 @@ curl "https://api-v2.hellofresh.com/auth/oauth2/client/access_token?country=de"
 
 > Make sure to replace `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET` with your real API credentials.
 
+```json
+{
+    "access_token": "random-string",
+    "token_type": "Bearer",
+    "expires_in": 31536000
+}
+```
+
 We use oAuth2 in order to grant access to our API. For every request you need a client token. In order to get client token you have to do this request.
 
 ### HTTP Request
@@ -44,115 +52,157 @@ We use oAuth2 in order to grant access to our API. For every request you need a 
 
 ### Query Parameters
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
-country   | false   | Country is mandatory for all requests (AT, AU, BE, DE, GB, NL, US)
+country   | string   | Country is mandatory for all requests (AT, AU, BE, DE, GB, NL, US)
 
 ### Body Parameters
 
 Remember to put these parameters as a JSON payload in the body request.
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
-client_id   | none   | Client ID that we provide you
-client_secret   | none   | Client secret that we provide you
-scope   | public   | Scope allowed for this client, by default is public
-grant_type   | client_credentials   | Kind of credentials, in this case a client token
+client_id   | string   | Client ID that we provide you
+client_secret   | string   | Client secret that we provide you
+scope   | string   | Scope allowed for this client, by default is public
+grant_type   | string   | Kind of credentials, in this case a client token
 
 
-# Kittens
+# Recipes
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Search Recipes
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl "https://api-v2.hellofresh.com/recipes/search?country=DE&q=pizza&limit=1"
+  -H "Authorization: Bearer MY_TOKEN"
+  -H "Content-Type: application/json"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "items": [
+    {
+      "imageLink": "https://d3hvwccx09j84u.cloudfront.net/web/image/56b1bc45f8b25ebc158b4568.jpg?t=20160203083725",
+      "thumbLink": "https://d3hvwccx09j84u.cloudfront.net/web/thumb/56b1bc45f8b25ebc158b4568.jpg?t=20160203083725",
+      "videoLink": null,
+      "cardLink": null,
+      "favoritesCount": null,
+      "ratingsCount": 1889,
+      "averageRating": 2.8,
+      "userFavorite": null,
+      "userRating": null,
+      "name": "Grüne Pizza mit Zitronen-Ricotta",
+      "description": null,
+      "headline": "und Kirschtomaten",
+      "prepTime": "PT40M",
+      "difficulty": 2,
+      "weeks": null,
+      "productFamilies": null,
+      "allergens": [],
+      "yieldType": null,
+      "yields": null,
+      "ingredients": [],
+      "steps": null,
+      "nutrition": null,
+      "cuisines": null,
+      "categories": [],
+      "highlighted": false,
+      "active": true,
+      "utensils": [],
+      "tags": [
+        {
+          "name": "Vegetarisch",
+          "type": "vegetarian",
+          "numberOfRecipes": null,
+          "imageByAuthor": {
+            "JO": "https://s3-eu-west-1.amazonaws.com/hf-recipes/tags/HF_IOS_icon_VEGGIE_105%401x_JO.png"
+          },
+          "id": "55422d79f8b25eb6758b474a",
+          "link": null,
+          "country": null,
+          "iconLink": "https://s3-eu-west-1.amazonaws.com/hf-recipes/tags/icon-veggie%403x.png"
+        }
+      ],
+      "presets": null,
+      "author": null,
+      "id": "56b1bc45f8b25ebc158b4568",
+      "link": "https://api.dev.hellofresh.com//recipes/56b1bc45f8b25ebc158b4568?country=DE",
+      "createdAt": "2016-02-03T08:37:25+0000",
+      "updatedAt": "2016-02-03T08:37:25+0000",
+      "country": "DE",
+      "slug": "grune-pizza-mit-zitronen-ricotta",
+      "websiteUrl": "/recipe/detail/56b1bc45f8b25ebc158b4568"
+    }
+  ],
+  "count": 1,
+  "total": 30,
+  "criteria": {
+    "q": "pizza",
+    "limit": 1,
+    "product": null,
+    "week": null,
+    "allergen": null,
+    "ingredient": null,
+    "cuisine": null,
+    "tag": null,
+    "diet": null,
+    "max-prep-time": null,
+    "level": null,
+    "name": null,
+    "offset": 0,
+    "order": null
+  }
 }
 ```
+
+This endpoint retrieves all kittens.
+
+### HTTP Request
+
+`GET http://api-v2.hellofresh.com/recipes/search`
+
+### Headers
+
+`Content-Type: application/json`
+`Authorization: Bearer YOUR_TOKEN`
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+country   | string   | Country is mandatory for all requests (AT, AU, BE, DE, GB, NL, US)
+q   | string   | Fulltext search
+week   | string   | Product or products: classic-box; classic-box|veggie-box
+allergen   | string   | Allergen slug or slugs: shell; shell|egg|nuts
+ingredient   | string   | Ingredient slug or slugs: carrot; carrot|pumpkin|sweet-potato
+cuisine   | string   | Cuisine slug or slugs: french; french|spanish|moroccan
+tag   | string   | Tag type or types: egg-free; egg-free|shell-free|vegan
+diet   | string   | Diet or diets: high-protein; high-protein|low-fat|low-sodium
+max-prep-time   | integer   | Maximum preparation time: 30; 50
+level   | integer   | Difficulty level: 3; 1
+name   | string   | Partial name of the recipe: chi; chicken
+with-favorites   | boolean   | Whether the recipes should include customer favorites
+with-ratings   | boolean   | Whether the recipes should include customer ratings
+offset   | integer   | Offset from the first result
+limit   | integer   | Maximum number of recipes to return
+order   | string   | Sort order: date; -date; rating; -rating; time; -time; name; -name; -date|rating|-time|name
+
+<aside class="success">
+Remember to put the country in your request!
+</aside>
+
+## Get a Specific Kitten
+
+
+```shell
+curl "https://api-v2.hellofresh.com/recipes/search?country=DE&q=pizza&limit=1"
+  -H "Authorization: Bearer MY_TOKEN"
+  -H "Content-Type: application/json"
+```
+
+> The above command returns JSON structured like this:
 
 This endpoint retrieves a specific kitten.
 
