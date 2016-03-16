@@ -3,8 +3,6 @@ title: API Reference
 
 language_tabs:
   - shell
-  - ruby
-  - python
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -18,45 +16,49 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Welcome to the HelloFresh API! You can use our API to access HelloFresh API endpoints.
 
 # Authentication
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl "https://api-v2.hellofresh.com/auth/oauth2/client/access_token?country=de"
+-H "Content-Type: application/json"
+--data-binary $'{"clienet_id": "YOUR_CLIENT_ID", "client_secret": "YOUR_CLIENT_SECRET", "scope": "public", "grant_type": "client_credentials"}'
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET` with your real API credentials.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+We use oAuth2 in order to grant access to our API. For every request you need a client token. In order to get client token you have to do this request.
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+### HTTP Request
 
-`Authorization: meowmeowmeow`
+`GET http://api-v2.hellofresh.com/auth/oauth2/client/access_token`
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+### Headers
+
+`Content-Type: application/json`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+country   | false   | Country is mandatory for all requests (AT, AU, BE, DE, GB, NL, US)
+
+### Body Parameters
+
+Remember to put these parameters as a JSON payload in the body request.
+
+Parameter | Default | Description
+--------- | ------- | -----------
+client_id   | none   | Client ID that we provide you
+client_secret   | none   | Client secret that we provide you
+scope   | public   | Scope allowed for this client, by default is public
+grant_type   | client_credentials   | Kind of credentials, in this case a client token
+
 
 # Kittens
 
@@ -165,4 +167,3 @@ This endpoint retrieves a specific kitten.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to retrieve
-
