@@ -344,7 +344,7 @@ curl "https://api-v2.hellofresh.com/recipes/ID"
 
 ### HTTP Request
 
-`GET https://api-v2.hellofresh.com.com/recipes/<ID>`
+`GET https://api-v2.hellofresh.com/recipes/<ID>`
 
 ### Headers
 
@@ -395,7 +395,7 @@ curl "https://api-v2.hellofresh.com/ingredients?country=DE&limit=1"
 
 ### HTTP Request
 
-`GET https://api-v2.hellofresh.com.com/ingredients/`
+`GET https://api-v2.hellofresh.com/ingredients/`
 
 ### Headers
 
@@ -447,7 +447,7 @@ curl "https://api-v2.hellofresh.com/allergens?country=DE&limit=1"
 
 ### HTTP Request
 
-`GET https://api-v2.hellofresh.com.com/allergens/`
+`GET https://api-v2.hellofresh.com/allergens/`
 
 ### Headers
 
@@ -494,7 +494,7 @@ curl "https://api-v2.hellofresh.com/cuisines?country=DE&limit=1"
 
 ### HTTP Request
 
-`GET https://api-v2.hellofresh.com.com/cuisines/`
+`GET https://api-v2.hellofresh.com/cuisines/`
 
 ### Headers
 
@@ -544,7 +544,7 @@ curl "https://api-v2.hellofresh.com/tags?country=DE&limit=1"
 
 ### HTTP Request
 
-`GET https://api-v2.hellofresh.com.com/tags/`
+`GET https://api-v2.hellofresh.com/tags/`
 
 ### Headers
 
