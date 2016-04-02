@@ -27,7 +27,7 @@ Welcome to the HelloFresh API! You can use our API to access HelloFresh API endp
 # With shell, you can just pass the correct header with each request
 curl -X POST "https://api-v2.hellofresh.com/auth/oauth2/client/access_token?country=de"
 -H "Content-Type: application/json"
---data-binary $'{"clienet_id": "YOUR_CLIENT_ID", "client_secret": "YOUR_CLIENT_SECRET", "scope": "public", "grant_type": "client_credentials"}'
+--data-binary $'{"client_id": "YOUR_CLIENT_ID", "client_secret": "YOUR_CLIENT_SECRET", "scope": "public", "grant_type": "client_credentials"}'
 ```
 
 > Make sure to replace `YOUR_CLIENT_ID` and `YOUR_CLIENT_SECRET` with your real API credentials.
