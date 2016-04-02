@@ -410,3 +410,151 @@ country   | string   | Country is mandatory for all requests (AT, AU, BE, DE, GB
 skip | integer | Number of results to skip
 take | integer | Number of results to show
 sort | string | Sort by field(s) in the response collection. You can do ASC and DESC by using + and -. Default is +. Ex: ?sort=price,-createdAt
+
+
+# Allergens
+
+## Get allergens
+
+```shell
+curl "https://api-v2.hellofresh.com/allergens?country=DE&limit=1"
+  -H "Authorization: Bearer MY_TOKEN"
+  -H "Content-Type: application/json"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "items": [
+        {
+          "code": 3,
+          "description": null,
+          "usage": null,
+          "tracesOf": false,
+          "triggersTracesOf": false,
+          "id": "55422d79f8b25eb6758b4569",
+          "link": null,
+          "type": "egg",
+          "country": "DE",
+          "name": "Ei",
+          "slug": "ei"
+        }
+    ],
+    "count": 1
+}
+```
+
+### HTTP Request
+
+`GET https://api-v2.hellofresh.com.com/allergens/`
+
+### Headers
+
+`Content-Type: application/json`
+`Authorization: Bearer YOUR_TOKEN`
+
+### URL Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+country   | string   | Country is mandatory for all requests (AT, AU, BE, DE, GB, NL, US)
+skip | integer | Number of results to skip
+take | integer | Number of results to show
+
+
+# Cuisines
+
+## Get cuisines
+
+```shell
+curl "https://api-v2.hellofresh.com/cuisines?country=DE&limit=1"
+  -H "Authorization: Bearer MY_TOKEN"
+  -H "Content-Type: application/json"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "items": [
+        {
+            "id": "561d15806ced6eb2668b456a",
+            "link": null,
+            "type": "german",
+            "country": "DE",
+            "name": "Germaans",
+            "slug": "germaans",
+            "iconLink": null
+        }
+    ],
+    "count": 1
+}
+```
+
+### HTTP Request
+
+`GET https://api-v2.hellofresh.com.com/cuisines/`
+
+### Headers
+
+`Content-Type: application/json`
+`Authorization: Bearer YOUR_TOKEN`
+
+### URL Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+country   | string   | Country is mandatory for all requests (AT, AU, BE, DE, GB, NL, US)
+skip | integer | Number of results to skip
+take | integer | Number of results to show
+
+
+# Tags
+
+## Get tags
+
+```shell
+curl "https://api-v2.hellofresh.com/tags?country=DE&limit=1"
+  -H "Authorization: Bearer MY_TOKEN"
+  -H "Content-Type: application/json"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "items": [
+        {
+            "name": "Gluten frei",
+            "type": "gluten-free",
+            "numberOfRecipes": 6,
+            "imageByAuthor": {
+                "JO": "https://s3-eu-west-1.amazonaws.com/hf-recipes/tags/HF_IOS_icon_GLUTEN_FREE_105%401x_JO.png"
+            },
+            "id": "55422d79f8b25eb6758b4746",
+            "link": null,
+            "country": "DE",
+            "iconLink": "https://s3-eu-west-1.amazonaws.com/hf-recipes/tags/icon-gluten%403x.png"
+        }
+    ],
+    "count": 1
+}
+```
+
+### HTTP Request
+
+`GET https://api-v2.hellofresh.com.com/tags/`
+
+### Headers
+
+`Content-Type: application/json`
+`Authorization: Bearer YOUR_TOKEN`
+
+### URL Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+country   | string   | Country is mandatory for all requests (AT, AU, BE, DE, GB, NL, US)
+skip | integer | Number of results to skip
+take | integer | Number of results to show
